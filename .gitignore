@@ -9,3 +9,9 @@ DataLayer/obj/*
 
 EntityLayer/bin/*
 EntityLayer/obj/*
+
+ApiLayer/bin/*
+ApiLayer/obj/*
+
+Web/bin/*
+Web/obj/*
