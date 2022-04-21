@@ -6,10 +6,18 @@ namespace DataLayer.Context
 {
     public class NefesContext:DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public NefesContext(DbContextOptions<NefesContext> options) : base(options)
         {
-            optionsBuilder.UseSqlite(@"Filename = deneme2");
+
         }
+        public NefesContext()
+        {
+
+        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlite(@"Filename = default");
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -20,16 +28,17 @@ namespace DataLayer.Context
                 HasOne<Birim>(p=>p.Birim).
                 WithMany(b=>b.Personeller).
                 HasForeignKey(p=>p.BirimId);
-            
-            byte[] passwordHash, passwordSalt;
-            HashingHelper.CreateHash("admin",out passwordHash,out passwordSalt);
+            byte[] passwordHash;
+            byte[] passwordSalt;
+
+
+            HashingHelper.CreateHash("admin", out passwordHash, out passwordSalt);
             modelBuilder.Entity<User>().HasData(new User
             {
-                Id = Guid.NewGuid(),
-                EmailAdress="admin@admincom",
+                Id=Guid.NewGuid().ToString(),
+                EmailAdress="admin@admin",
                 PasswordHash=passwordHash,
                 PasswordSalt=passwordSalt
-                
             });
                
         }

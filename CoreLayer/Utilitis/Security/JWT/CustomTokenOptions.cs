@@ -1,6 +1,6 @@
 ﻿namespace CoreLayer.Utilitis.Security.JWT
 {
-    public class TokenOptions
+    public class CustomTokenOptions
     {
         public string Audience { get; set; } = "";
         public string Issuer { get; set; } = "";

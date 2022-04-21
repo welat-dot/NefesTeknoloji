@@ -5,10 +5,10 @@ namespace BusinessLayer.Abstract
 {
     public interface IGenericRepo<T>
     {
-        IDataResult<T> insert(T entity);
-        IDataResult<T> update(T entity);
+        IDataResult<string> insert(T entity);
+        IDataResult<string> update(T entity);
         IResult delete(string id);
-        IDataResult<IQueryable<T>> get();
-        IDataResult<IQueryable<T>> getByid(string id);
+        IDataResult<List<T>> get();
+        IDataResult<List<T>> getByid(string id);
     }
 }

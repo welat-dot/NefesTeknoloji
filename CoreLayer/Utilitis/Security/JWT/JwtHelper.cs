@@ -10,12 +10,12 @@ namespace CoreLayer.Utilitis.Security.JWT
     public class JwtHelper : ITokenHelper
     {
         public IConfiguration configuration { get; }
-        private TokenOptions _tokenOptions;
+        private CustomTokenOptions _tokenOptions;
         private DateTime _accessTokenExpiration;
         public JwtHelper(IConfiguration configuration)
         {
             this.configuration = configuration;
-            _tokenOptions = configuration.GetSection("TokenOptions").Get<TokenOptions>();
+            _tokenOptions = configuration.GetSection("TokenOptions").Get<CustomTokenOptions>();
         }
         public AccessToken CreateToken(string username)
         {
@@ -32,7 +32,7 @@ namespace CoreLayer.Utilitis.Security.JWT
 
             };
         }
-        public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions,SigningCredentials signingCredentials, string usernmae)
+        public JwtSecurityToken CreateJwtSecurityToken(CustomTokenOptions tokenOptions,SigningCredentials signingCredentials, string usernmae)
         {
             var jwt = new JwtSecurityToken(
                 issuer: tokenOptions.Issuer,

@@ -12,7 +12,7 @@ namespace EntityLayer
     public class User : IEntity
     {
        
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         [MaxLength(100)]
         public string EmailAdress { get; set; } = "";      
         public byte[] PasswordHash { get; set; }

@@ -7,5 +7,10 @@ namespace DataLayer.Concreate
 {
     public class UserManager : BaseRepository<User, NefesContext>,IUserManager
     {
+        private NefesContext dBContext;
+        public UserManager(NefesContext dBContext) : base(dBContext)
+        {
+            this.dBContext = dBContext;
+        }
     }
 }

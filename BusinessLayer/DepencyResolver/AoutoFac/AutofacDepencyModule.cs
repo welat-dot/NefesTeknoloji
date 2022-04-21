@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using BusinessLayer.Abstract;
 using BusinessLayer.Concreate;
+using CoreLayer.Utilitis.Security.JWT;
 using DataLayer.Abstarct;
 using DataLayer.Concreate;
 
@@ -18,7 +19,9 @@ namespace BusinessLayer.DepencyResolver.AoutoFac
             builder.RegisterType<AuthService>().As<IAuthService>();
             builder.RegisterType<BirimService>().As<IBirimService>();
             builder.RegisterType<PersonelService>().As<IPersonelService>();
-            builder.RegisterType<UserManager>().As<IUserService>();
+            builder.RegisterType<UserService>().As<IUserService>();
+
+            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
 
 

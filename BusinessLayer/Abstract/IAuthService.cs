@@ -1,10 +1,11 @@
 ﻿using CoreLayer.Utilitis.Result;
+using EntityLayer;
 
 namespace BusinessLayer.Abstract
 {
     public interface IAuthService
     {
-        Result Login();
-        Result Register();
+        IResult Login(LoginDTO login);
+        IResult Register(LoginDTO login);
     }
 }

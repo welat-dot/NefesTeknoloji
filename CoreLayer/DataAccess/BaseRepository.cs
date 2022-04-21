@@ -8,52 +8,55 @@ namespace CoreLayer.DataAccess
         where TContext : DbContext, new()
 
     {
+        private TContext dbContext;
+        public BaseRepository(TContext Context)
+        {
+
+            dbContext = Context;
+        }
         public TData delete(TData entity)
         {
-            using (var dbContext = new TContext())
-            {
+           
                 TData data = dbContext.Set<TData>().Remove(entity).Entity;
                 dbContext.SaveChanges();
-                return data;
-               
-            }
+                return data;              
+           
         }
 
         public TData insert(TData entity)
         {
-            using (var dbContext = new TContext())
-            {
+          
                 TData dd = dbContext.Set<TData>().Add(entity).Entity;
                 dbContext.SaveChanges();
                 return dd;
-            }
+            
+           
         }
 
-        public IQueryable<TData> selectAll()
+        public List<TData> selectAll()
         {
-            using (var dbContext = new TContext())
-            {                
-                return dbContext.Set<TData>();
-            }
+            IQueryable<TData> datals= dbContext.Set<TData>();
+
+            return datals.Any() ? datals.ToList() : new List<TData>();
+            
         }
 
-        public IQueryable<TData> select(Expression<Func<TData, bool>> filter)
+        public List<TData> select(Expression<Func<TData, bool>> filter)
         {
-            using (var dbContext = new TContext())
-            {
+           
                 IQueryable<TData> itemls =  dbContext.Set<TData>().Where(filter);
-                return itemls;
-            }
+                
+                return itemls.Any()? itemls.ToList():new List<TData>();
+            
         }
 
         public TData update(TData entity)
         {
-            using (var dbContext = new TContext())
-            {
+           
                 TData dd = dbContext.Set<TData>().Update(entity).Entity;
                 dbContext.SaveChanges();
                 return dd;
-            }
+          
         }
     }
 }

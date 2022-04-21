@@ -19,8 +19,7 @@ namespace DataLayer.Migrate
 
             modelBuilder.Entity("EntityLayer.Birim", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("BirimAdi")
@@ -35,8 +34,7 @@ namespace DataLayer.Migrate
 
             modelBuilder.Entity("EntityLayer.Personel", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Adi")
@@ -44,7 +42,8 @@ namespace DataLayer.Migrate
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("BirimId")
+                    b.Property<string>("BirimId")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SoyAdi")
@@ -61,8 +60,7 @@ namespace DataLayer.Migrate
 
             modelBuilder.Entity("EntityLayer.User", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("EmailAdress")
@@ -85,10 +83,10 @@ namespace DataLayer.Migrate
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e26993e8-0c18-4ee2-8f54-17b08e5d945a"),
-                            EmailAdress = "admin@admincom",
-                            PasswordHash = new byte[] { 19, 2, 216, 121, 140, 157, 21, 75, 129, 194, 123, 124, 42, 40, 193, 158, 31, 196, 187, 215, 32, 0, 205, 66, 136, 102, 40, 67, 55, 1, 57, 126, 138, 2, 225, 23, 250, 103, 91, 76, 246, 62, 138, 90, 72, 90, 205, 213, 117, 132, 193, 205, 202, 11, 43, 79, 23, 156, 93, 78, 103, 197, 54, 252 },
-                            PasswordSalt = new byte[] { 121, 111, 230, 106, 196, 98, 49, 246, 65, 61, 139, 88, 57, 192, 97, 102, 99, 31, 71, 83, 218, 57, 81, 8, 234, 139, 111, 159, 241, 194, 117, 145, 169, 221, 123, 192, 60, 72, 249, 133, 37, 93, 101, 54, 54, 168, 95, 116, 81, 103, 26, 13, 78, 17, 209, 122, 254, 59, 76, 113, 70, 125, 99, 77, 244, 62, 132, 158, 35, 180, 92, 10, 182, 70, 7, 190, 107, 190, 152, 239, 128, 162, 128, 110, 64, 34, 11, 192, 11, 85, 166, 43, 224, 184, 217, 176, 5, 13, 149, 30, 115, 108, 7, 149, 59, 125, 215, 25, 160, 248, 60, 147, 37, 126, 65, 107, 174, 91, 228, 110, 105, 51, 32, 121, 209, 118, 3, 132 }
+                            Id = "d55c2a66-204d-48a6-afc7-2020c744cd90",
+                            EmailAdress = "admin@admin",
+                            PasswordHash = new byte[] { 190, 22, 128, 23, 190, 59, 4, 53, 36, 125, 139, 185, 147, 230, 5, 166, 123, 8, 13, 45, 34, 154, 72, 162, 206, 31, 194, 60, 237, 190, 1, 100, 3, 181, 182, 129, 60, 42, 249, 144, 157, 181, 218, 126, 54, 205, 0, 206, 110, 197, 36, 72, 209, 170, 249, 134, 168, 160, 46, 183, 164, 100, 200, 150 },
+                            PasswordSalt = new byte[] { 160, 67, 222, 154, 110, 223, 170, 74, 78, 33, 85, 226, 30, 43, 247, 165, 246, 189, 175, 107, 179, 245, 17, 187, 26, 234, 84, 194, 17, 146, 229, 163, 19, 150, 78, 80, 176, 72, 231, 98, 208, 114, 11, 123, 207, 174, 20, 212, 24, 29, 173, 90, 236, 188, 60, 171, 123, 122, 198, 223, 134, 20, 232, 14, 10, 173, 217, 27, 194, 10, 167, 64, 155, 107, 126, 138, 160, 214, 54, 37, 37, 235, 63, 140, 253, 164, 253, 207, 15, 233, 238, 137, 92, 134, 201, 102, 81, 30, 73, 238, 39, 119, 175, 200, 111, 86, 119, 87, 30, 23, 184, 15, 103, 72, 136, 118, 209, 79, 235, 62, 91, 231, 243, 60, 137, 78, 196, 16 }
                         });
                 });
 

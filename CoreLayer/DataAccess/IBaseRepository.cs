@@ -8,8 +8,8 @@ namespace CoreLayer.DataAccess
         TData insert(TData entity);
         TData update(TData entity);
         TData delete(TData entity);
-        IQueryable<TData> select(Expression<Func<TData, bool>> filter);
-        IQueryable<TData> selectAll();
+        List<TData> select(Expression<Func<TData, bool>> filter);
+        List<TData> selectAll();
     }
     
 }
