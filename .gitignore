@@ -1,0 +1,17 @@
+CoreLayer/bin/*
+CoreLayer/obj/*
+
+BusinessLayer/bin/*
+BusinessLayer/obj/*
+
+DataLayer/bin/*
+DataLayer/obj/*
+
+EntityLayer/bin/*
+EntityLayer/obj/*
+
+ApiLayer/bin/*
+ApiLayer/obj/*
+
+Web/bin/*
+Web/obj/*
